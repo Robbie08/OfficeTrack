@@ -39,4 +39,11 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
+
+    // Adding the Room Dependencies
+    // specified in https://developer.android.com/jetpack/androidx/releases/room
+    def room_version = "2.8.4"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-common:$room_version"
 }

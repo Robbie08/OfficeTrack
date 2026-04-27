@@ -3,6 +3,11 @@
     <style name="Base.Theme.OfficeTrack" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/gt_navy</item>
+        <item name="colorOnPrimary">@color/gt_white</item>
+        <item name="colorPrimaryContainer">@color/gt_navy</item>
+        <item name="colorSecondary">@color/gt_gold</item>
+        <item name="android:statusBarColor">@color/gt_navy</item>
     </style>
 
     <style name="Theme.OfficeTrack" parent="Base.Theme.OfficeTrack" />

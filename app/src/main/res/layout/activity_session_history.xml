@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        app:title="Session History"
+        app:titleCentered="true"
+        app:titleTextColor="@color/gt_white" />
+
+    <LinearLayout
+        android:id="@+id/sessionHistoryContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp">
+
+        <Button
+            android:id="@+id/addSessionButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Session"
+            android:backgroundTint="@color/gt_navy"
+            android:textColor="@color/gt_white"
+            android:layout_marginBottom="16dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/sessionRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false" />
+
+        <TextView
+            android:id="@+id/emptyHistoryTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No sessions yet.\nStart a session from the Home screen or add one manually."
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:visibility="gone"
+            android:layout_marginTop="32dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

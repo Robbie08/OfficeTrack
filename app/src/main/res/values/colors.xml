@@ -2,4 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gt_navy">#003057</color>
+    <color name="gt_gold">#B3A369</color>
+    <color name="gt_white">#FFFFFF</color>
 </resources>
