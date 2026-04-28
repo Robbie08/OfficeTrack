@@ -7,6 +7,9 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.robbie08.officetrack.data.dao.AppSettingsDao;
+import com.robbie08.officetrack.data.dao.OfficeLocationDao;
+import com.robbie08.officetrack.data.dao.OfficeSessionDao;
 import com.robbie08.officetrack.data.entity.AppSettingsEntity;
 import com.robbie08.officetrack.data.entity.OfficeLocationEntity;
 import com.robbie08.officetrack.data.entity.OfficeSessionEntity;
@@ -26,6 +29,11 @@ import com.robbie08.officetrack.data.entity.OfficeSessionEntity;
         exportSchema = false
 )
 public abstract class OfficeTrackDB extends RoomDatabase {
+    public abstract OfficeSessionDao officeSessionDao();
+
+    public abstract OfficeLocationDao officeLocationDao();
+
+    public abstract AppSettingsDao appSettingsDao();
 
     private static volatile OfficeTrackDB officeTrackDBInstance;
     private static final Object lock = new Object();
