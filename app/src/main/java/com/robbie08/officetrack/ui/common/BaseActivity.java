@@ -1,6 +1,7 @@
 package com.robbie08.officetrack.ui.common;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -9,6 +10,12 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.robbie08.officetrack.R;
 
 public class BaseActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(android.os.Bundle savedInstanceState) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        super.onCreate(savedInstanceState);
+    }
     /**
      * This method sets up the material tool bar.
      */
@@ -17,7 +24,8 @@ public class BaseActivity extends AppCompatActivity {
         MaterialToolbar toolbar = findViewById(R.id.topAppBar);
         setSupportActionBar(toolbar);
 
-        toolbar.setNavigationIconTint(getColor(R.color.gt_white));
+        toolbar.setNavigationIconTint(getColor(R.color.ot_text_primary));
+        toolbar.setTitleTextColor(getColor(R.color.ot_text_primary));
 
         if (getSupportActionBar() != null) {
             // manually set the title of the app in case it wasn't set previously

@@ -1,13 +1,33 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.OfficeTrack" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="colorPrimary">@color/gt_navy</item>
-        <item name="colorOnPrimary">@color/gt_white</item>
-        <item name="colorPrimaryContainer">@color/gt_navy</item>
-        <item name="colorSecondary">@color/gt_gold</item>
-        <item name="android:statusBarColor">@color/gt_navy</item>
+        <item name="colorPrimary">@color/ot_surface</item>
+        <item name="colorOnPrimary">@color/ot_text_primary</item>
+
+        <item name="colorSecondary">@color/ot_accent_blue</item>
+        <item name="colorOnSecondary">@color/ot_bg</item>
+
+        <item name="colorSurface">@color/ot_surface</item>
+        <item name="colorOnSurface">@color/ot_text_primary</item>
+
+        <item name="colorSurfaceVariant">@color/ot_surface_alt</item>
+        <item name="colorOnSurfaceVariant">@color/ot_text_secondary</item>
+
+        <item name="android:windowBackground">@color/ot_bg</item>
+        <item name="android:statusBarColor">@color/ot_bg</item>
+        <item name="android:navigationBarColor">@color/ot_bg</item>
+
+        <item name="android:fontFamily">sans</item>
+
+        <item name="colorAccent">@color/ot_accent_blue</item>
+        <item name="android:colorAccent">@color/ot_accent_blue</item>
+
+        <item name="colorControlNormal">@color/ot_text_secondary</item>
+        <item name="colorControlActivated">@color/ot_accent_blue</item>
+        <item name="colorControlHighlight">@color/ot_surface_alt</item>
+
+        <item name="android:textColorPrimary">@color/ot_text_primary</item>
+        <item name="android:textColorSecondary">@color/ot_text_secondary</item>
     </style>
 
     <style name="Theme.OfficeTrack" parent="Base.Theme.OfficeTrack" />

@@ -10,10 +10,10 @@
         android:id="@+id/topAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="@color/ot_surface"
         app:title="Session History"
         app:titleCentered="true"
-        app:titleTextColor="@color/gt_white" />
+        app:titleTextColor="@color/ot_text_primary" />
 
     <LinearLayout
         android:id="@+id/sessionHistoryContent"
@@ -30,8 +30,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Add Session"
-            android:backgroundTint="@color/gt_navy"
-            android:textColor="@color/gt_white"
+            android:backgroundTint="@color/ot_accent_blue"
+            android:textColor="@color/ot_bg"
             android:layout_marginBottom="16dp" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -39,7 +39,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:clipToPadding="false" />
+            android:clipToPadding="false"
+            android:paddingBottom="16dp" />
 
         <TextView
             android:id="@+id/emptyHistoryTextView"

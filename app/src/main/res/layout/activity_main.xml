@@ -10,10 +10,10 @@
         android:id="@+id/topAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="@color/ot_surface"
         app:title="Office Track"
         app:titleCentered="true"
-        app:titleTextColor="@android:color/white" />
+        app:titleTextColor="@color/ot_text_primary" />
 
     <ScrollView
         android:id="@+id/mainScrollView"
@@ -82,6 +82,16 @@
                 android:textSize="16sp"
                 android:layout_marginTop="2dp" />
 
+            <ProgressBar
+                android:id="@+id/weeklyProgressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:progress="0"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="4dp" />
+
             <TextView
                 android:id="@+id/weeklyRemainingTextView"
                 android:layout_width="match_parent"
@@ -107,6 +117,16 @@
                 android:textSize="16sp"
                 android:layout_marginTop="2dp" />
 
+            <ProgressBar
+                android:id="@+id/monthlyProgressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:progress="0"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="4dp" />
+
             <TextView
                 android:id="@+id/monthlyRemainingTextView"
                 android:layout_width="match_parent"
@@ -121,8 +141,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Start Session"
-                android:backgroundTint="@color/gt_navy"
-                android:textColor="@color/gt_white"
+                android:backgroundTint="@color/ot_accent_blue"
+                android:textColor="@color/ot_bg"
                 android:layout_marginBottom="12dp" />
 
             <Button
@@ -130,8 +150,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="End Session"
-                android:backgroundTint="@color/gt_navy"
-                android:textColor="@color/gt_white"
+                android:backgroundTint="@color/ot_accent_blue"
+                android:textColor="@color/ot_bg"
                 android:layout_marginBottom="12dp" />
 
             <Button
@@ -139,8 +159,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Session History"
-                android:backgroundTint="@color/gt_navy"
-                android:textColor="@color/gt_white"
+                android:backgroundTint="@color/ot_accent_blue"
+                android:textColor="@color/ot_bg"
                 />
 
         </LinearLayout>

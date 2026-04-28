@@ -3,6 +3,7 @@ package com.robbie08.officetrack.ui.main;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -21,6 +22,9 @@ public class MainActivity extends BaseActivity {
 
     private ComputationManager computationManager;
 
+    private ProgressBar weeklyProgressBar;
+    private ProgressBar monthlyProgressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +33,9 @@ public class MainActivity extends BaseActivity {
 
         computationManager = ((OfficeTrackApp) getApplication()).getComputationManager();
 
-        initMaterialToolbar("Office Track");
+        initMaterialToolbar("Dashboard");
 
+        initProgressBars();
         loadDashboard();
         initButtons();
     }
@@ -74,9 +79,9 @@ public class MainActivity extends BaseActivity {
             bEndSession.setEnabled(true);
         }
 
-        long weekMinutes = computationManager.getCurrentWeekOfficeMinutes();
-        long weekTargetMinutes = computationManager.getWeeklyTargetMinutes();
-        long weekRemainingMinutes = computationManager.getCurrentWeekRemainingMinutes();
+        long weekMinutes = computationManager.getCurrentMonthAwareWeekOfficeMinutes();
+        long weekTargetMinutes = computationManager.getCurrentMonthAwareWeeklyTargetMinutes();
+        long weekRemainingMinutes = Math.max(0, weekTargetMinutes - weekMinutes);
 
         weeklyProgressTextView.setText(
                 DateTimeFormatUtils.formatDurationMinutes(weekMinutes)
@@ -101,6 +106,23 @@ public class MainActivity extends BaseActivity {
         monthlyRemainingTextView.setText(
                 "Remaining: " + DateTimeFormatUtils.formatDurationMinutes(monthRemainingMinutes)
         );
+
+        weeklyProgressBar.setProgress(calculateProgressPercent(weekMinutes, weekTargetMinutes));
+        monthlyProgressBar.setProgress(calculateProgressPercent(monthMinutes, monthTargetMinutes));
+    }
+
+    private int calculateProgressPercent(long currentMinutes, long targetMinutes) {
+        if (targetMinutes <= 0) {
+            return 0;
+        }
+
+        long percentage = Math.round((currentMinutes * 100.0) / targetMinutes);
+        return (int) Math.min(100, Math.max(0, percentage));
+    }
+
+    private void initProgressBars() {
+        weeklyProgressBar = findViewById(R.id.weeklyProgressBar);
+        monthlyProgressBar = findViewById(R.id.monthlyProgressBar);
     }
 
     private void initButtons() {

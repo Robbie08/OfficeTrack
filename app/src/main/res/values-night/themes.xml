@@ -1,7 +1,23 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.OfficeTrack" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/ot_surface</item>
+        <item name="colorOnPrimary">@color/ot_text_primary</item>
+
+        <item name="colorSecondary">@color/ot_accent_blue</item>
+        <item name="colorOnSecondary">@color/ot_bg</item>
+
+        <item name="colorSurface">@color/ot_surface</item>
+        <item name="colorOnSurface">@color/ot_text_primary</item>
+
+        <item name="colorSurfaceVariant">@color/ot_surface_alt</item>
+        <item name="colorOnSurfaceVariant">@color/ot_text_secondary</item>
+
+        <item name="android:windowBackground">@color/ot_bg</item>
+        <item name="android:statusBarColor">@color/ot_bg</item>
+        <item name="android:navigationBarColor">@color/ot_bg</item>
+
+        <item name="android:fontFamily">sans</item>
     </style>
+    <style name="Theme.OfficeTrack" parent="Base.Theme.OfficeTrack" />
 </resources>

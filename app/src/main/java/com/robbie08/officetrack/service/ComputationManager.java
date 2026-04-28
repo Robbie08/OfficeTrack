@@ -13,6 +13,9 @@ import com.robbie08.officetrack.model.OfficeSessionMapper;
 import com.robbie08.officetrack.model.OfficeSessionModel;
 import com.robbie08.officetrack.util.DateRangeUtils;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -63,13 +66,13 @@ public class ComputationManager {
     }
 
     public long getCurrentWeekOfficeMinutes() {
-        long weekStartMillis = DateRangeUtils.getStartOfCurrentWeekMillis();
-        long weekEndMillis = DateRangeUtils.getEndOfCurrentWeekMillis();
+        long startMillis = DateRangeUtils.getStartOfCurrentWeekWithinCurrentMonthMillis();
+        long endMillis = DateRangeUtils.getEndOfCurrentWeekWithinCurrentMonthMillis();
 
-        List<OfficeSessionEntity> weeklySessions =
-                officeSessionDao.getSessionsBetween(weekStartMillis, weekEndMillis);
+        List<OfficeSessionEntity> sessions =
+                officeSessionDao.getSessionsBetween(startMillis, endMillis);
 
-        return calculateTotalMinutes(weeklySessions, weekStartMillis, weekEndMillis);
+        return calculateTotalMinutes(sessions, startMillis, endMillis);
     }
 
     private long calculateTotalMinutes(
@@ -110,8 +113,29 @@ public class ComputationManager {
     }
 
     public long getEstimatedMonthlyTargetMinutes() {
-        return getWeeklyTargetMinutes() * 4;
+        long dailyTargetMinutes = Math.round(getWeeklyTargetMinutes() / 5.0);
+        int workdaysInMonth = DateRangeUtils.countWeekdaysInCurrentMonth();
+
+        return dailyTargetMinutes * workdaysInMonth;
     }
+
+    public long getCurrentMonthAwareWeeklyTargetMinutes() {
+        long dailyTargetMinutes = Math.round(getWeeklyTargetMinutes() / 5.0);
+        int workdays = DateRangeUtils.countWeekdaysInCurrentWeekWithinCurrentMonth();
+
+        return dailyTargetMinutes * workdays;
+    }
+
+    public long getCurrentMonthAwareWeekOfficeMinutes() {
+        long startMillis = DateRangeUtils.getStartOfCurrentWeekWithinCurrentMonthMillis();
+        long endMillis = DateRangeUtils.getEndOfCurrentWeekWithinCurrentMonthMillis();
+
+        List<OfficeSessionEntity> sessions =
+                officeSessionDao.getSessionsBetween(startMillis, endMillis);
+
+        return calculateTotalMinutes(sessions, startMillis, endMillis);
+    }
+
 
     public long getCurrentWeekRemainingMinutes() {
         return Math.max(0, getWeeklyTargetMinutes() - getCurrentWeekOfficeMinutes());

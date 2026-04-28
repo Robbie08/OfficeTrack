@@ -1,58 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/sessionItemContainer"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/sessionItemCard"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:paddingStart="12dp"
-    android:paddingEnd="12dp"
-    android:paddingTop="12dp"
-    android:paddingBottom="12dp"
-    android:background="@android:color/white"
-    android:clickable="true"
-    android:focusable="true"
-    android:foreground="?attr/selectableItemBackground">
+    android:layout_marginBottom="6dp"
+    app:cardBackgroundColor="@color/ot_surface"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="0dp"
+    app:strokeColor="@color/ot_divider"
+    app:strokeWidth="1dp">
 
     <LinearLayout
-        android:id="@+id/sessionTextContainer"
-        android:layout_width="0dp"
+        android:id="@+id/sessionItemContainer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp">
 
-        <TextView
-            android:id="@+id/sessionDateTextView"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:id="@+id/sessionTextContainer"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Mon, Apr 27"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/sessionTimeRangeTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="8:42 AM - 4:31 PM"
-            android:textSize="14sp"
-            android:layout_marginTop="4dp" />
+            <TextView
+                android:id="@+id/sessionDateTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mon, Apr 27"
+                android:textColor="@color/ot_text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/sessionDurationTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="7h 49m · Manual"
-            android:textSize="14sp"
-            android:layout_marginTop="4dp" />
+            <TextView
+                android:id="@+id/sessionTimeRangeTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="8:42 AM - 4:31 PM"
+                android:textColor="@color/ot_text_secondary"
+                android:textSize="15sp"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:id="@+id/sessionDurationTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="7h 49m · Manual"
+                android:textColor="@color/ot_text_secondary"
+                android:textSize="15sp"
+                android:layout_marginTop="4dp" />
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/editSessionButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Edit session"
+            android:src="@android:drawable/ic_menu_edit"
+            />
 
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/editSessionButton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center_vertical"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="Edit session"
-        android:src="@android:drawable/ic_menu_edit" />
-
-</LinearLayout>
+</com.google.android.material.card.MaterialCardView>

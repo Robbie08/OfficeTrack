@@ -264,6 +264,12 @@ public class SessionEntryActivity extends BaseActivity {
                 startDate.getDayOfMonth()
         );
 
+        dialog.setOnShowListener(d -> {
+            dialog.getButton(DatePickerDialog.BUTTON_POSITIVE)
+                    .setTextColor(getColor(R.color.ot_accent_blue));
+            dialog.getButton(DatePickerDialog.BUTTON_NEGATIVE)
+                    .setTextColor(getColor(R.color.ot_accent_blue));
+        });
         dialog.show();
     }
 
@@ -279,6 +285,12 @@ public class SessionEntryActivity extends BaseActivity {
                 endDate.getDayOfMonth()
         );
 
+        dialog.setOnShowListener(d -> {
+            dialog.getButton(DatePickerDialog.BUTTON_POSITIVE)
+                    .setTextColor(getColor(R.color.ot_accent_blue));
+            dialog.getButton(DatePickerDialog.BUTTON_NEGATIVE)
+                    .setTextColor(getColor(R.color.ot_accent_blue));
+        });
         dialog.show();
     }
 
@@ -294,6 +306,13 @@ public class SessionEntryActivity extends BaseActivity {
                 false
         );
 
+        dialog.setOnShowListener(d -> {
+            dialog.getButton(TimePickerDialog.BUTTON_POSITIVE)
+                    .setTextColor(getColor(R.color.ot_accent_blue));
+            dialog.getButton(TimePickerDialog.BUTTON_NEGATIVE)
+                    .setTextColor(getColor(R.color.ot_accent_blue));
+        });
+
         dialog.show();
     }
 
@@ -308,6 +327,13 @@ public class SessionEntryActivity extends BaseActivity {
                 endTime.getMinute(),
                 false
         );
+
+        dialog.setOnShowListener(d -> {
+            dialog.getButton(TimePickerDialog.BUTTON_POSITIVE)
+                    .setTextColor(getColor(R.color.ot_accent_blue));
+            dialog.getButton(TimePickerDialog.BUTTON_NEGATIVE)
+                    .setTextColor(getColor(R.color.ot_accent_blue));
+        });
 
         dialog.show();
     }

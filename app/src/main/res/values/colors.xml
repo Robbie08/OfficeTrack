@@ -5,4 +5,18 @@
     <color name="gt_navy">#003057</color>
     <color name="gt_gold">#B3A369</color>
     <color name="gt_white">#FFFFFF</color>
+
+
+    <color name="ot_bg">#121417</color>
+    <color name="ot_surface">#1B1E23</color>
+    <color name="ot_surface_alt">#242832</color>
+
+    <color name="ot_text_primary">#F4F6F8</color>
+    <color name="ot_text_secondary">#A9B0BA</color>
+
+    <color name="ot_accent_blue">#4DA3FF</color>
+    <color name="ot_accent_orange">#FF8A5B</color>
+    <color name="ot_accent_green">#42D392</color>
+
+    <color name="ot_divider">#343A46</color>
 </resources>
